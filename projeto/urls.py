@@ -22,13 +22,12 @@ from projeto.todolist.views import CategoryViewSet, TodoListViewSet, AuthView
 
 
 router = SimpleRouter()
-router.register('todos', TodoListViewSet)
-router.register('categorias', CategoryViewSet)
+router.register('todos', TodoListViewSet, basename='Todos')
+router.register('categorias', CategoryViewSet, basename='Categorias')
 
 
 urlpatterns = [
     path('', include(router.urls)),
     path('auth/', AuthView.as_view()),
     path('admin/', admin.site.urls),
-    
 ]
